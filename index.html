@@ -242,7 +242,7 @@
         const EMAILJS_SERVICE_ID = "service_57lvxmw";
         const EMAILJS_TEMPLATE_ID = "template_snngxpn";
 
-        // Initialize EmailJS (Uncommented to prevent crashes)
+        // Initialize EmailJS safely
         try {
             emailjs.init(EMAILJS_PUBLIC_KEY);
         } catch (e) {
@@ -273,7 +273,10 @@
 
         let currentStep = 1;
         let noClickCount = 0;
-        let userEvaluation = {};
+        let userEvaluation = {
+            score: "0/16",
+            items: []
+        };
 
         // Render the checklist dynamically
         function renderChecklist() {
@@ -315,25 +318,36 @@
         }
 
         function submitChecklist() {
-            // 1. IMPORTANT: Move to the next step immediately so the UI absolutely never gets stuck!
-            nextStep(6);
+            let scoreStr = "0/16";
+            let formattedItems = "None selected";
 
-            // 2. Gather the data and attempt to send the email inside a try-catch block
             try {
+                // Collect elements that have been checked on the webpage
                 const checkedBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
-                const totalBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]').length;
+                const totalBoxes = checklistItems.length;
                 
                 const selectedItems = Array.from(checkedBoxes).map(cb => cb.value);
+                
+                // Save current state locally
                 userEvaluation = {
                     score: `${selectedItems.length}/${totalBoxes}`,
                     items: selectedItems
                 };
 
-                const formattedItems = selectedItems.length > 0 ? '\n- ' + selectedItems.join('\n- ') : 'None selected';
+                scoreStr = userEvaluation.score;
+                formattedItems = selectedItems.length > 0 ? selectedItems.map(item => `• ${item}`).join('\n') : "None selected";
+            } catch (e) {
+                console.error("Error reading checklist checkboxes: ", e);
+            }
 
-                sendEmailNotification("Randi submitted the Checklist evaluation!", userEvaluation.score, formattedItems);
+            // 1. Move the user immediately to the next screen so there's zero lag or sticking issues
+            nextStep(6);
+
+            // 2. Fire the EmailJS callback safely in the background
+            try {
+                sendEmailNotification("Randi submitted the Checklist evaluation!", scoreStr, formattedItems);
             } catch(e) {
-                console.error("Safely caught an error collecting or sending checklist data:", e);
+                console.error("EmailJS background send failure:", e);
             }
         }
 
@@ -375,24 +389,29 @@
 
             if (noClickCount === 1) {
                 try {
-                    sendEmailNotification("Randi hesitated and clicked No once... 🥺", userEvaluation.score || "N/A", "No new items");
+                    const formattedItems = userEvaluation.items && userEvaluation.items.length > 0 
+                        ? userEvaluation.items.map(item => `• ${item}`).join('\n') 
+                        : "None selected";
+                    sendEmailNotification("Randi hesitated and clicked No once... 🥺", userEvaluation.score || "N/A", formattedItems);
                 } catch(e) {}
             }
         }
 
         function answerQuestion(answer) {
             if (answer === 'yes') {
-                const formattedItems = userEvaluation.items && userEvaluation.items.length > 0 ? '\n- ' + userEvaluation.items.join('\n- ') : 'None selected';
+                const formattedItems = userEvaluation.items && userEvaluation.items.length > 0 
+                    ? userEvaluation.items.map(item => `• ${item}`).join('\n') 
+                    : "None selected";
                 
-                // 1. Show the success page and fireworks immediately!
+                // Show the success screen immediately
                 showStep(7);
                 fireConfetti();
                 
-                // 2. Try to send the email in the background
+                // Notify via EmailJS in the background
                 try {
                     sendEmailNotification("SHE SAID YES! 🎉🎉🎉", userEvaluation.score || 'Skipped', formattedItems);
                 } catch(e) {
-                    console.error("EmailJS Error:", e);
+                    console.error("EmailJS send failed:", e);
                 }
             }
         }
@@ -410,12 +429,12 @@
                         to_name: "You",
                         from_name: "Ask Out App"
                     }).then(
-                        (response) => console.log('SUCCESS!', response.status, response.text),
-                        (error) => console.log('FAILED...', error)
+                        (response) => console.log('EmailJS Sent Successful!', response.status, response.text),
+                        (error) => console.log('EmailJS Sent Failed...', error)
                     );
                 }
             } catch (error) {
-                console.error("Failed to send email due to an error.", error);
+                console.error("Failed to execute EmailJS dispatch.", error);
             }
         }
 
@@ -424,7 +443,7 @@
             renderChecklist();
         };
 
-        // Simple mock confetti function using CSS for the final page
+        // Confetti effect
         function fireConfetti() {
             for(let i=0; i<30; i++) {
                 let conf = document.createElement('div');
