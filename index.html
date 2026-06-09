@@ -106,7 +106,7 @@
                 <i class="text-brand-500">"Do you have a girlfriend?"</i><br>
                 Because you said you don't text guys who do. I'm so glad I didn't. 😉
             </p>
-            <button onclick="nextStep(2)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
+            <button type="button" onclick="nextStep(2)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
                 Next Chapter 📖
             </button>
         </div>
@@ -125,10 +125,10 @@
                 Even though the distance between the UK and Sri Lanka mattered, I loved every single second of talking with you.
             </p>
             <div class="flex gap-4 w-full sm:w-auto justify-center">
-                <button onclick="prevStep(1)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                <button type="button" onclick="prevStep(1)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
                     Back
                 </button>
-                <button onclick="nextStep(3)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <button type="button" onclick="nextStep(3)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                     Next 👉
                 </button>
             </div>
@@ -149,10 +149,10 @@
                 We were so caught up in the moment that we didn't even take a picture together! (We definitely need to fix that soon 😉, but until then, I edited one). But seeing you in person for the first time was the highlight of everything. You were even more beautiful than I imagined.
             </p>
             <div class="flex gap-4 w-full sm:w-auto justify-center">
-                <button onclick="prevStep(2)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                <button type="button" onclick="prevStep(2)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
                     Back
                 </button>
-                <button onclick="nextStep(4)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <button type="button" onclick="nextStep(4)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                     Keep Reading ❤️
                 </button>
             </div>
@@ -172,10 +172,10 @@
                 And when we don't talk... I feel so incredibly lonely. You've become my favorite part of the day.
             </p>
             <div class="flex gap-4 w-full sm:w-auto justify-center">
-                <button onclick="prevStep(3)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                <button type="button" onclick="prevStep(3)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
                     Back
                 </button>
-                <button onclick="nextStep(5)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <button type="button" onclick="nextStep(5)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                     Next 👉
                 </button>
             </div>
@@ -191,10 +191,10 @@
             </div>
 
             <div class="flex gap-4 w-full justify-center mt-4">
-                <button onclick="prevStep(4)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                <button type="button" onclick="prevStep(4)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
                     Back
                 </button>
-                <button onclick="submitChecklist()" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <button type="button" onclick="submitChecklist()" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                     Evaluate Me & Continue ✨
                 </button>
             </div>
@@ -211,10 +211,10 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-6 w-full items-center justify-center h-24 relative">
-                <button id="btn-yes" onclick="answerQuestion('yes')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-xl z-20 w-48">
+                <button type="button" id="btn-yes" onclick="answerQuestion('yes')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-xl z-20 w-48">
                     YES! 🥰
                 </button>
-                <button id="btn-no" onclick="handleNoClick()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-4 px-10 rounded-full shadow-md transition-all text-xl absolute sm:relative z-10 w-48">
+                <button type="button" id="btn-no" onclick="handleNoClick()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-4 px-10 rounded-full shadow-md transition-all text-xl absolute sm:relative z-10 w-48">
                     No
                 </button>
             </div>
@@ -315,25 +315,25 @@
         }
 
         function submitChecklist() {
-            const checkedBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
-            const totalBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]').length;
-            
-            const selectedItems = Array.from(checkedBoxes).map(cb => cb.value);
-            userEvaluation = {
-                score: `${selectedItems.length}/${totalBoxes}`,
-                items: selectedItems
-            };
-
-            const formattedItems = selectedItems.length > 0 ? '\n- ' + selectedItems.join('\n- ') : 'None selected';
-            
-            // 1. IMPORTANT: Move to the next step immediately so the UI doesn't get stuck!
+            // 1. IMPORTANT: Move to the next step immediately so the UI absolutely never gets stuck!
             nextStep(6);
 
-            // 2. Try to send the email in the background
+            // 2. Gather the data and attempt to send the email inside a try-catch block
             try {
+                const checkedBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
+                const totalBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]').length;
+                
+                const selectedItems = Array.from(checkedBoxes).map(cb => cb.value);
+                userEvaluation = {
+                    score: `${selectedItems.length}/${totalBoxes}`,
+                    items: selectedItems
+                };
+
+                const formattedItems = selectedItems.length > 0 ? '\n- ' + selectedItems.join('\n- ') : 'None selected';
+
                 sendEmailNotification("Randi submitted the Checklist evaluation!", userEvaluation.score, formattedItems);
             } catch(e) {
-                console.error("EmailJS Error - but UI continues safely:", e);
+                console.error("Safely caught an error collecting or sending checklist data:", e);
             }
         }
 
