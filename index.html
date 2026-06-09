@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Randi 💖</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'script': ['"Dancing Script"', 'cursive'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .step-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px);
+        }
+        .step-container.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Checkbox Styling */
+        .heart-checkbox input:checked + div {
+            background-color: #ec4899;
+            border-color: #ec4899;
+        }
+        .heart-checkbox input:checked + div svg {
+            display: block;
+        }
+        
+        /* Floating background hearts */
+        .bg-heart {
+            position: absolute;
+            color: rgba(244, 114, 182, 0.2);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 relative flex items-center justify-center p-4 sm:p-8">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <svg class="bg-heart top-10 left-10 w-24 h-24 animate-float" style="animation-delay: 0s;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <svg class="bg-heart bottom-20 right-10 w-32 h-32 animate-float" style="animation-delay: 2s;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <svg class="bg-heart top-1/3 right-1/4 w-16 h-16 animate-float" style="animation-delay: 4s;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+
+    <main class="w-full max-w-2xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden relative z-10 border border-white">
+        
+        <!-- Step 1 -->
+        <div id="step-1" class="step-container active flex-col items-center p-8 sm:p-12 text-center">
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">Where It All Began...</h1>
+            
+            <!-- PLACEHOLDER FOR HER PICTURE 1 -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 mb-8 mx-auto group cursor-pointer">
+                <div class="absolute inset-0 bg-brand-200 rounded-2xl transform rotate-6 transition-transform group-hover:rotate-12"></div>
+                <!-- To update the picture, replace the src below with your image URL (e.g., './images/pic1.jpg') -->
+                <img src="https://github.com/avishka-123/justforyourandi/blob/main/randi2.jpeg" alt="Randi" class="absolute inset-0 w-full h-full object-cover rounded-2xl border-4 border-white shadow-lg z-10 transition-transform group-hover:scale-105">
+            </div>
+
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8">
+                <span class="font-semibold text-brand-600">November 6th, 2023.</span> Your birthday. <br>
+                It started with just a simple Snapchat wish. I never imagined where it would lead. <br><br>
+                I still smile thinking about the first thing you asked me: <br>
+                <i class="text-brand-500">"Do you have a girlfriend?"</i><br>
+                Because you said you don't text guys who do. I'm so glad I didn't. 😉
+            </p>
+            <button onclick="nextStep(2)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
+                Next Chapter 📖
+            </button>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-2" class="step-container flex-col items-center p-8 sm:p-12 text-center">
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">Growing Closer</h1>
+            
+            <!-- PLACEHOLDER FOR SNAPCHAT/FACETIME SCREENSHOT -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 mb-8 mx-auto group cursor-pointer">
+                <div class="absolute inset-0 bg-brand-200 rounded-full transform scale-105 transition-transform group-hover:scale-110"></div>
+                <img src="randi3.jpeg" alt="Memories" class="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-lg z-10 transition-transform group-hover:scale-100">
+            </div>
+
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8">
+                We started talking almost every single day, and it only made us closer. <br><br>
+                Even though the distance between the UK and Sri Lanka mattered, I loved every single second of talking with you.
+            </p>
+            <div class="flex gap-4 w-full sm:w-auto justify-center">
+                <button onclick="prevStep(1)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                    Back
+                </button>
+                <button onclick="nextStep(3)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    Next 👉
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="step-container flex-col items-center p-8 sm:p-12 text-center">
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">Finally Meeting</h1>
+            
+            <!-- PLACEHOLDER FOR HER PICTURE 2 -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 mb-8 mx-auto group cursor-pointer">
+                <div class="absolute inset-0 bg-brand-200 rounded-2xl transform -rotate-6 transition-transform group-hover:-rotate-12"></div>
+                <img src="https://github.com/avishka-123/justforyourandi/edit/main/for_randi.html#:~:text=caricature.png" alt="Us" class="absolute inset-0 w-full h-full object-cover rounded-2xl border-4 border-white shadow-lg z-10 transition-transform group-hover:scale-105">
+            </div>
+
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8">
+                <span class="font-semibold text-brand-600">March 28th, 2026.</span><br>
+                After 3 long years living in the UK, I finally came back to Sri Lanka.<br><br>
+                We were so caught up in the moment that we didn't even take a picture together! (We definitely need to fix that soon 😉, but until then, I edited one). But seeing you in person for the first time was the highlight of everything. You were even more beautiful than I imagined.
+            </p>
+            <div class="flex gap-4 w-full sm:w-auto justify-center">
+                <button onclick="prevStep(2)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                    Back
+                </button>
+                <button onclick="nextStep(4)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    Keep Reading ❤️
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div id="step-4" class="step-container flex-col items-center p-8 sm:p-12 text-center">
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">How You Make Me Feel</h1>
+            
+            <!-- PLACEHOLDER FOR HER PICTURE 3 -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 mb-8 mx-auto group cursor-pointer">
+                <div class="absolute inset-0 bg-brand-200 rounded-full transform scale-105 transition-transform group-hover:scale-110"></div>
+                <!-- To update the picture, replace the src below with your image URL -->
+                <img src="https://github.com/avishka-123/justforyourandi/edit/main/for_randi.html#:~:text=Randi1.jpeg" alt="Smile" class="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-lg z-10 transition-transform group-hover:scale-100">
+            </div>
+
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8">
+                When I talk to you, every single bit of my stress just disappears. You bring so much peace and joy into my life.<br><br>
+                And when we don't talk... I feel so incredibly lonely. You've become my favorite part of the day.
+            </p>
+            <div class="flex gap-4 w-full sm:w-auto justify-center">
+                <button onclick="prevStep(3)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                    Back
+                </button>
+                <button onclick="nextStep(5)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    Next 👉
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div id="step-5" class="step-container flex-col p-8 sm:p-12">
+            <h1 class="font-script text-4xl sm:text-5xl text-brand-600 mb-4 text-center drop-shadow-sm">The Candidate Checklist</h1>
+            <p class="text-center text-gray-600 mb-8">You once told me exactly what you're looking for in a boyfriend. Let's see how I do. Check off the ones you think I meet! 😊</p>
+            
+            <div id="checklist-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <!-- Checklist items injected via JS -->
+            </div>
+
+            <div class="flex gap-4 w-full justify-center mt-4">
+                <button onclick="prevStep(4)" class="bg-white border-2 border-brand-200 text-brand-500 hover:bg-brand-50 font-semibold py-3 px-6 rounded-full transition-all">
+                    Back
+                </button>
+                <button onclick="submitChecklist()" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    Evaluate Me & Continue ✨
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div id="step-6" class="step-container flex-col items-center p-8 sm:p-12 text-center min-h-[500px] justify-center">
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">The Time is Now</h1>
+            
+            <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-10">
+                You once told me it wasn't the right time. You said you would say yes or no whenever you're ready. I promised to be patient.<br><br>
+                <span class="font-semibold text-brand-600 text-2xl">Randi, are you ready now?</span><br>
+                Will you be my girlfriend?
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 w-full items-center justify-center h-24 relative">
+                <button id="btn-yes" onclick="answerQuestion('yes')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-xl z-20 w-48">
+                    YES! 🥰
+                </button>
+                <button id="btn-no" onclick="handleNoClick()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-4 px-10 rounded-full shadow-md transition-all text-xl absolute sm:relative z-10 w-48">
+                    No
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 7 (Success) -->
+        <div id="step-7" class="step-container flex-col items-center p-8 sm:p-12 text-center">
+            <div class="animate-bounce mb-6">
+                <svg class="w-24 h-24 text-brand-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <h1 class="font-script text-5xl sm:text-7xl text-brand-600 mb-6 drop-shadow-sm">You Made Me The Happiest! 🎉</h1>
+            <p class="text-xl sm:text-2xl leading-relaxed text-gray-700 mb-8 font-medium">
+                I promise to be everything on that checklist and more.<br>
+                I can't wait for our next date! ❤️
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+        /* =========================================
+           EMAILJS CONFIGURATION
+           =========================================
+           Instructions:
+           1. Go to emailjs.com and create a free account.
+           2. Add an Email Service (e.g., Gmail).
+           3. Create an Email Template with variables like {{message}}, {{details}}.
+           4. Replace the placeholders below with your actual keys.
+        */
+        const EMAILJS_PUBLIC_KEY = "ioHK4BbS4ODcoC6Hs"; 
+        const EMAILJS_SERVICE_ID = "service_57lvxmw";
+        const EMAILJS_TEMPLATE_ID = "template_snngxpn";
+
+        // Initialize EmailJS (Uncomment and add your key when ready)
+        // emailjs.init(EMAILJS_PUBLIC_KEY);
+
+        /* =========================================
+           STATE & NAVIGATION
+           ========================================= */
+        const checklistItems = [
+            "Loving and caring",
+            "Educated than you",
+            "Has a stable job",
+            "Beared",
+            "Tall than 5’5",
+            "Broad shoulders",
+            "Older than you",
+            "Bring Flowers",
+            "Serious about growth and success",
+            "People person",
+            "Can’t have girl bestie",
+            "No long distance",
+            "No drinking at all",
+            "Obsessed with me",
+            "Take you out - Plan date",
+            "Has to like Taylor swift"
+        ];
+
+        let currentStep = 1;
+        let noClickCount = 0;
+        let userEvaluation = {};
+
+        // Render the checklist dynamically
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = '';
+            
+            checklistItems.forEach((item, index) => {
+                const id = `check-${index}`;
+                const html = `
+                    <label class="flex items-center space-x-3 p-3 bg-white border border-brand-100 rounded-xl cursor-pointer hover:bg-brand-50 transition-colors shadow-sm group">
+                        <div class="heart-checkbox relative flex items-center justify-center">
+                            <input type="checkbox" id="${id}" value="${item}" class="peer sr-only">
+                            <div class="w-6 h-6 border-2 border-brand-300 rounded-md peer-focus:ring-2 ring-brand-400 transition-colors bg-white flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </div>
+                        <span class="text-gray-700 font-medium select-none group-hover:text-brand-600 transition-colors">${item}</span>
+                    </label>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.step-container').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(`step-${step}`).classList.add('active');
+            currentStep = step;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextStep(targetStep) {
+            // Optional: Send intermediate email to know she is progressing
+            // sendEmailNotification(`Randi clicked Next to read Page ${targetStep}`);
+            showStep(targetStep);
+        }
+
+        function prevStep(targetStep) {
+            showStep(targetStep);
+        }
+
+        function submitChecklist() {
+            const checkedBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
+            const totalBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]').length;
+            
+            const selectedItems = Array.from(checkedBoxes).map(cb => cb.value);
+            userEvaluation = {
+                score: `${selectedItems.length}/${totalBoxes}`,
+                items: selectedItems
+            };
+
+            // Format items as a bulleted list for the email
+            const formattedItems = selectedItems.length > 0 ? '\n- ' + selectedItems.join('\n- ') : 'None selected';
+            sendEmailNotification("Randi submitted the Checklist evaluation!", userEvaluation.score, formattedItems);
+            
+            nextStep(6);
+        }
+
+        /* =========================================
+           THE "NO" BUTTON LOGIC
+           ========================================= */
+        const noMessages = [
+            "Are you sure? 🥺",
+            "Really really sure? 😭",
+            "Think again! 💔",
+            "But I meet the checklist! 🥺",
+            "I'll buy you flowers! 💐",
+            "Taylor Swift would say YES! 🎸",
+            "Please? 🥺"
+        ];
+
+        function handleNoClick() {
+            noClickCount++;
+            const btnNo = document.getElementById('btn-no');
+            const btnYes = document.getElementById('btn-yes');
+
+            // Change Text
+            const messageIndex = Math.min(noClickCount - 1, noMessages.length - 1);
+            btnNo.innerText = noMessages[messageIndex];
+
+            // Make Yes button bigger
+            const currentYesScale = 1 + (noClickCount * 0.2);
+            btnYes.style.transform = `scale(${currentYesScale})`;
+            
+            // Randomly move the No button on mobile/desktop
+            const x = (Math.random() - 0.5) * 150;
+            const y = (Math.random() - 0.5) * 150;
+            
+            if (noClickCount > 2) {
+                btnNo.style.position = 'absolute';
+                btnNo.style.transform = `translate(${x}px, ${y}px)`;
+                btnNo.classList.remove('sm:relative');
+            }
+
+            // Optional: Send email if she keeps clicking no
+            if (noClickCount === 1) {
+                sendEmailNotification("Randi hesitated and clicked No once... 🥺", userEvaluation.score || "N/A", "No new items");
+            }
+        }
+
+        function answerQuestion(answer) {
+            if (answer === 'yes') {
+                const formattedItems = userEvaluation.items && userEvaluation.items.length > 0 ? '\n- ' + userEvaluation.items.join('\n- ') : 'None selected';
+                sendEmailNotification("SHE SAID YES! 🎉🎉🎉", userEvaluation.score || 'Skipped', formattedItems);
+                showStep(7);
+                fireConfetti(); // Optional extra flair
+            }
+        }
+
+        /* =========================================
+           EMAILJS SENDER FUNCTION
+           ========================================= */
+        function sendEmailNotification(action, score = "N/A", selectedItems = "N/A") {
+            console.log("Mock Email Sent:", action, score, selectedItems);
+            
+            // UNCOMMENT THIS BLOCK ONCE YOU ADD YOUR KEYS
+          
+            if(typeof emailjs !== 'undefined') {
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    action: action,
+                    score: score,
+                    selected_items: selectedItems,
+                    to_name: "You",
+                    from_name: "Ask Out App"
+                }).then(
+                    (response) => console.log('SUCCESS!', response.status, response.text),
+                    (error) => console.log('FAILED...', error)
+                );
+            }
+        }
+
+        // Initialize things on load
+        window.onload = () => {
+            renderChecklist();
+        };
+
+        // Simple mock confetti function using CSS for the final page
+        function fireConfetti() {
+            for(let i=0; i<30; i++) {
+                let conf = document.createElement('div');
+                conf.style.position = 'absolute';
+                conf.style.width = '10px';
+                conf.style.height = '10px';
+                conf.style.backgroundColor = ['#ec4899', '#f472b6', '#fbbf24', '#34d399', '#60a5fa'][Math.floor(Math.random()*5)];
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-10px';
+                conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                conf.style.zIndex = '100';
+                document.body.appendChild(conf);
+
+                let duration = Math.random() * 3 + 2;
+                conf.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(100vh) rotate(${Math.random()*360}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'linear',
+                    fill: 'forwards'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
