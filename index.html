@@ -198,7 +198,7 @@
             <p class="text-center text-gray-600 mb-8">You once told me exactly what you're looking for in a boyfriend. Let's see how I do. Check off the ones you think I meet! 😊</p>
             
             <div id="checklist-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                <!-- Checklist items injected via JS -->
+                <!-- Checklist items injected via JS with specific IDs -->
             </div>
 
             <div class="flex gap-4 w-full justify-center mt-4">
@@ -211,7 +211,7 @@
             </div>
         </div>
 
-        <!-- New Step 5.5: Things I Like About You -->
+        <!-- Step 5.5: Things I Like About You -->
         <div id="step-5-half" class="step-container flex-col p-8 sm:p-12">
             <h1 class="font-script text-4xl sm:text-5xl text-brand-600 mb-6 text-center drop-shadow-sm">Things I Like About You ❤️</h1>
             
@@ -274,7 +274,7 @@
             <div class="animate-bounce mb-6">
                 <svg class="w-24 h-24 text-brand-500 animate-pulse-slow" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </div>
-            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">Thank you for giving us a chance. ❤️</h1>
+            <h1 class="font-script text-5xl sm:text-6xl text-brand-600 mb-6 drop-shadow-sm">Thank you for giving me a chance. ❤️</h1>
             <p class="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8 max-w-md mx-auto">
                 I don't promise perfection. <br><br>
                 But I do promise honesty, effort, support, and a whole lot of laughs along the way. <br><br>
@@ -292,7 +292,7 @@
                 If there's one thing you've taught me, it's that good things don't need to be rushed. <br><br>
                 I didn't create this because I wanted to pressure you into giving me an answer. I created it because I wanted you to know how much you mean to me. <br><br>
                 Whether your answer is today, tomorrow, or sometime in the future, I respect it. <br><br>
-                Until then, I'll keep doing what I've always enjoyed doing talking to you, laughing with you, and being there whenever you need me. <br><br>
+                Until then, I'll keep doing what I've always enjoyed doing — talking to you, laughing with you, and being there whenever you need me. <br><br>
                 And who knows... maybe one day you'll come back here and press a different button. 😊🤍
             </p>
         </div>
@@ -317,23 +317,24 @@
         /* =========================================
            STATE & NAVIGATION
            ========================================= */
+        // Explicit unique semantic IDs matched to human-friendly labels
         const checklistItems = [
-            "Loving and caring",
-            "Educated than you",
-            "Has a stable job",
-            "Beared",
-            "Tall than 5’5",
-            "Broad shoulders",
-            "Older than you",
-            "Bring Flowers",
-            "Serious about growth and success",
-            "People person",
-            "Can’t have girl bestie",
-            "No long distance",
-            "No drinking at all",
-            "Obsessed with me",
-            "Take you out - Plan date",
-            "Has to like Taylor swift"
+            { id: "loving_caring", label: "Loving and caring" },
+            { id: "more_educated", label: "Educated than you" },
+            { id: "stable_job", label: "Has a stable job" },
+            { id: "bearded", label: "Beared" },
+            { id: "tall_5_5", label: "Tall than 5’5" },
+            { id: "broad_shoulders", label: "Broad shoulders" },
+            { id: "older_than_you", label: "Older than you" },
+            { id: "bring_flowers", label: "Bring Flowers" },
+            { id: "growth_success", label: "Serious about growth and success" },
+            { id: "people_person", label: "People person" },
+            { id: "no_girl_bestie", label: "Can’t have girl bestie" },
+            { id: "no_long_distance", label: "No long distance" },
+            { id: "no_drinking", label: "No drinking at all" },
+            { id: "obsessed_with_me", label: "Obsessed with me" },
+            { id: "plan_dates", label: "Take you out - Plan date" },
+            { id: "taylor_swift", label: "Has to like Taylor swift" }
         ];
 
         let currentStep = 1;
@@ -343,22 +344,21 @@
             items: []
         };
 
-        // Render the checklist dynamically
+        // Render the checklist dynamically with semantic IDs
         function renderChecklist() {
             const container = document.getElementById('checklist-container');
             container.innerHTML = '';
             
-            checklistItems.forEach((item, index) => {
-                const id = `check-${index}`;
+            checklistItems.forEach((item) => {
                 const html = `
                     <label class="flex items-center space-x-3 p-3 bg-white border border-brand-100 rounded-xl cursor-pointer hover:bg-brand-50 transition-colors shadow-sm group">
                         <div class="heart-checkbox relative flex items-center justify-center">
-                            <input type="checkbox" id="${id}" value="${item}" class="peer sr-only">
+                            <input type="checkbox" id="${item.id}" value="${item.label}" class="peer sr-only">
                             <div class="w-6 h-6 border-2 border-brand-300 rounded-md peer-focus:ring-2 ring-brand-400 transition-colors bg-white flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </div>
-                        <span class="text-gray-700 font-medium select-none group-hover:text-brand-600 transition-colors">${item}</span>
+                        <span class="text-gray-700 font-medium select-none group-hover:text-brand-600 transition-colors">${item.label}</span>
                     </label>
                 `;
                 container.insertAdjacentHTML('beforeend', html);
@@ -369,7 +369,6 @@
             document.querySelectorAll('.step-container').forEach(el => {
                 el.classList.remove('active');
             });
-            // Handle Step 5.5 path ID nicely
             const targetId = step === 5.5 ? 'step-5-half' : `step-${step}`;
             document.getElementById(targetId).classList.add('active');
             currentStep = step;
@@ -385,37 +384,29 @@
         }
 
         function submitChecklist() {
-            let scoreStr = "0/16";
-            let formattedItems = "None selected";
-
             try {
-                // Collect elements that have been checked on the webpage
-                const checkedBoxes = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
+                const selectedItems = [];
                 const totalBoxes = checklistItems.length;
+
+                // Explicitly look up check state by unique item ID
+                checklistItems.forEach(item => {
+                    const checkbox = document.getElementById(item.id);
+                    if (checkbox && checkbox.checked) {
+                        selectedItems.push(item.label);
+                    }
+                });
                 
-                const selectedItems = Array.from(checkedBoxes).map(cb => cb.value);
-                
-                // Save current state locally
+                // Save current selections to state locally without triggering an email
                 userEvaluation = {
                     score: `${selectedItems.length}/${totalBoxes}`,
                     items: selectedItems
                 };
-
-                scoreStr = userEvaluation.score;
-                formattedItems = selectedItems.length > 0 ? selectedItems.map(item => `• ${item}`).join('\n') : "None selected";
             } catch (e) {
                 console.error("Error reading checklist checkboxes: ", e);
             }
 
-            // 1. Move to the intermediate Things I Like About You page
+            // Move quietly to Step 5.5
             nextStep(5.5);
-
-            // 2. Fire the EmailJS callback safely in the background
-            try {
-                sendEmailNotification("Randi evaluated you on 'The Randi Standard' checklist!", scoreStr, formattedItems);
-            } catch(e) {
-                console.error("EmailJS background send failure:", e);
-            }
         }
 
         /* =========================================
@@ -449,19 +440,10 @@
             const x = (Math.random() - 0.5) * movementRange;
             const y = (Math.random() - 0.5) * movementRange;
             
-            // Only convert to absolute and move once clicks begin to happen
             if (noClickCount > 1) {
                 btnNo.style.position = 'absolute';
                 btnNo.style.transform = `translate(${x}px, ${y}px)`;
             }
-
-            // Real-time update email when she keeps pressing 'No'
-            try {
-                const formattedItems = userEvaluation.items && userEvaluation.items.length > 0 
-                    ? userEvaluation.items.map(item => `• ${item}`).join('\n') 
-                    : "None selected";
-                sendEmailNotification(`Randi clicked No. Total No Clicks so far: ${noClickCount} 🥺`, userEvaluation.score || "N/A", formattedItems);
-            } catch(e) {}
         }
 
         function answerQuestion(answer) {
@@ -470,23 +452,33 @@
                 : "None selected";
 
             if (answer === 'yes') {
-                // Show the beautiful success screen immediately
+                // Show success screen instantly
                 showStep(7);
                 fireConfetti();
                 
-                // Send positive response email with checklist stats and 'No' count
+                // DISPATCH ONE SINGLE CONSOLIDATED FINAL EMAIL FOR 'YES'
                 try {
-                    sendEmailNotification(`SHE SAID YES! 🎉🎉🎉 (No Button clicked: ${noClickCount} times)`, userEvaluation.score || 'Skipped', formattedItems);
+                    sendEmailNotification(
+                        "Randi selected: YES! 🥰 Give us a chance!", 
+                        userEvaluation.score || "0/16", 
+                        formattedItems,
+                        noClickCount
+                    );
                 } catch(e) {
                     console.error("EmailJS send failed:", e);
                 }
             } else if (answer === 'soon') {
-                // Show the sweet "Not yet, but soon" page
+                // Show "not yet" page instantly
                 showStep(8);
                 
-                // Send "Not Yet" update with checklist stats and 'No' count
+                // DISPATCH ONE SINGLE CONSOLIDATED FINAL EMAIL FOR 'NOT YET'
                 try {
-                    sendEmailNotification(`She clicked 'Not yet, but soon' 😊 (No Button clicked: ${noClickCount} times)`, userEvaluation.score || 'Skipped', formattedItems);
+                    sendEmailNotification(
+                        "Randi selected: Not yet, but soon 😊", 
+                        userEvaluation.score || "0/16", 
+                        formattedItems,
+                        noClickCount
+                    );
                 } catch(e) {
                     console.error("EmailJS send failed:", e);
                 }
@@ -496,17 +488,18 @@
         /* =========================================
            EMAILJS SENDER FUNCTION
            ========================================= */
-        function sendEmailNotification(action, score = "N/A", selectedItems = "N/A") {
+        function sendEmailNotification(action, score = "N/A", selectedItems = "N/A", noClicks = 0) {
             try {
                 if(typeof emailjs !== 'undefined') {
                     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
                         action: action,
                         score: score,
                         selected_items: selectedItems,
+                        no_clicks: noClicks,
                         to_name: "You",
                         from_name: "Ask Out App"
                     }).then(
-                        (response) => console.log('EmailJS Sent Successful!', response.status, response.text),
+                        (response) => console.log('Final EmailJS Sent Successful!', response.status, response.text),
                         (error) => console.log('EmailJS Sent Failed...', error)
                     );
                 }
