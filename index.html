@@ -195,7 +195,30 @@
         <!-- Step 5: The Randi Standard -->
         <div id="step-5" class="step-container flex-col p-8 sm:p-12">
             <h1 class="font-script text-4xl sm:text-5xl text-brand-600 mb-4 text-center drop-shadow-sm">The Randi Standard 😌</h1>
-            <p class="text-center text-gray-600 mb-8">You once told me exactly what you're looking for in a boyfriend. Let's see how I do. Check off the ones you think I meet! 😊</p>
+            
+            <p class="text-center text-gray-600 mb-6 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">
+                At some point, you told me exactly what you were looking for in a boyfriend.<br>
+                Being the overthinking IT guy that I am, I may or may not have noted down the list. 😌<br>
+                So here's your chance to judge me properly.<br>
+                No pressure, no trick questions, no negative marking.<br>
+                Just tick the boxes if you think I qualify. ❤️
+            </p>
+
+            <!-- Mock Candidate Metadata Profile Card (Left-Aligned Columns) -->
+            <div class="bg-brand-50 border border-brand-100 rounded-2xl p-5 mb-8 text-left text-sm sm:text-base space-y-2.5 max-w-lg mx-auto shadow-sm">
+                <div class="grid grid-cols-[140px_1fr] sm:grid-cols-[180px_1fr] gap-x-2 border-b border-brand-100/50 pb-2">
+                    <span class="font-semibold text-gray-500">Candidate:</span>
+                    <span class="font-bold text-gray-700">Avishka</span>
+                </div>
+                <div class="grid grid-cols-[140px_1fr] sm:grid-cols-[180px_1fr] gap-x-2 border-b border-brand-100/50 pb-2">
+                    <span class="font-semibold text-gray-500">Position Applied For:</span>
+                    <span class="font-bold text-brand-600">Randi's Boyfriend ❤️</span>
+                </div>
+                <div class="grid grid-cols-[140px_1fr] sm:grid-cols-[180px_1fr] gap-x-2">
+                    <span class="font-semibold text-gray-500">Recruiter:</span>
+                    <span class="font-bold text-gray-700">Randi 👀</span>
+                </div>
+            </div>
             
             <div id="checklist-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <!-- Checklist items injected via JS with specific IDs -->
@@ -317,7 +340,7 @@
         /* =========================================
            STATE & NAVIGATION
            ========================================= */
-        // Explicit unique semantic IDs matched to human-friendly labels
+        // Explicit unique semantic IDs matched to human-friendly labels with emojis
         const checklistItems = [
             { id: "loving_caring", label: "❤️ Loving and caring" },
             { id: "more_educated", label: "🎓 More educated than me" },
@@ -332,7 +355,7 @@
             { id: "no_girl_bestie", label: "🚫 Doesn't have a girl bestie" },
             { id: "no_long_distance", label: "🌍 Doesn't mind distance when it matters" },
             { id: "no_drinking", label: "🍺 Doesn't drink alcohol" },
-            { id: "obsessed_with_me", label: "😅 Slightly obsessed with me" },
+            { id: "obsessed_with_me", label: "🤍 Obsessed with me" },
             { id: "plan_dates", label: "🍽️ Plans proper dates" },
             { id: "taylor_swift", label: "🎵 Can survive listening to Taylor Swift" }
         ];
@@ -358,7 +381,7 @@
                                 <svg class="w-4 h-4 text-white hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </div>
-                        <span class="text-gray-700 font-medium select-none group-hover:text-brand-600 transition-colors">${item.label}</span>
+                        <span class="text-gray-700 text-xs sm:text-sm font-medium select-none group-hover:text-brand-600 transition-colors">${item.label}</span>
                     </label>
                 `;
                 container.insertAdjacentHTML('beforeend', html);
