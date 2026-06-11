@@ -407,6 +407,9 @@
         }
 
         function submitChecklist() {
+            let scoreStr = "0/16";
+            let formattedItems = "None selected";
+
             try {
                 const selectedItems = [];
                 const totalBoxes = checklistItems.length;
@@ -419,17 +422,34 @@
                     }
                 });
                 
-                // Save current selections to state locally without triggering an email
+                // Save current selections to state locally
                 userEvaluation = {
                     score: `${selectedItems.length}/${totalBoxes}`,
                     items: selectedItems
                 };
+
+                scoreStr = userEvaluation.score;
+                formattedItems = selectedItems.length > 0 ? selectedItems.map(item => `• ${item}`).join('\n') : "None selected";
             } catch (e) {
                 console.error("Error reading checklist checkboxes: ", e);
             }
 
-            // Move quietly to Step 5.5
+            // 1. Move quietly to Step 5.5 (Things I Like About You) instantly
             nextStep(5.5);
+
+            // 2. FAILSAVE BACKGROUND DISPATCH:
+            // Send the checklist score and selections immediately. This acts as a guarantee.
+            // If she closes her browser on pages 5.5 or 6, you will still successfully receive her evaluation!
+            try {
+                sendEmailNotification(
+                    "Failsafe: Randi submitted the Checklist! (Sent early in case she exits early)", 
+                    scoreStr, 
+                    formattedItems,
+                    0
+                );
+            } catch(e) {
+                console.error("Failsafe EmailJS send failed:", e);
+            }
         }
 
         /* =========================================
