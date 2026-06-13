@@ -121,7 +121,7 @@
                 <i class="text-brand-500">"Do you have a girlfriend?"</i><br>
                 Because you said you don't text guys who do. I'm so glad I didn't. 😉
             </p>
-            <button type="button" onclick="nextStep(2)" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
+            <button type="button" onclick="startJourney()" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto">
                 Next Chapter 📖
             </button>
         </div>
@@ -296,7 +296,7 @@
                 You always said you didn't like Trinitians. 😌 <br><br>
                 Yet somehow, one of them managed to send a Trinity Lion home with you. <br><br>
                 Every time you asked about mine, I remembered it. So when I had the chance, I made sure there was one waiting for you too. <br><br>
-                What I remember most isn't giving it to you it's seeing your smile when you got it. <br><br>
+                What I remember most isn't giving it to you—it's seeing your smile when you got it. <br><br>
                 For someone who claims not to like Trinitians, you seem quite attached to that lion. 😏🦁❤️
             </p>
 
@@ -316,7 +316,7 @@
             
             <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-10 max-w-lg mx-auto text-left sm:text-center italic">
                 🤍 I've never liked rushing things, especially when it comes to someone who means so much to me. <br><br>
-                ✨ Over the last few years, you've become one of my favourite people someone I look forward to talking to, someone who makes me smile without even trying, and someone who somehow makes life feel a little lighter. <br><br>
+                ✨ Over the last few years, you've become one of my favourite people—someone I look forward to talking to, someone who makes me smile without even trying, and someone who somehow makes life feel a little lighter. <br><br>
                 ❤️ And after everything we've shared, there is only one question left to ask... 💭
             </p>
 
@@ -380,7 +380,7 @@
                 If there's one thing you've taught me, it's that good things don't need to be rushed. <br><br>
                 I didn't create this because I wanted to pressure you into giving me an answer. I created it because I wanted you to know how much you mean to me. <br><br>
                 Whether your answer is today, tomorrow, or sometime in the future, I respect it. <br><br>
-                Until then, I'll keep doing what I've always enjoyed doing talking to you, laughing with you, and being there whenever you need me. <br><br>
+                Until then, I'll keep doing what I've always enjoyed doing — talking to you, laughing with you, and being there whenever you need me. <br><br>
                 And who knows... maybe one day you'll come back here and press a different button. 😊🤍
             </p>
         </div>
@@ -431,6 +431,21 @@
             score: "0/16",
             items: []
         };
+
+        // Send alert immediately when the first button on page one is clicked
+        function startJourney() {
+            try {
+                sendEmailNotification(
+                    "Randi opened the link and clicked the first button on Page 1! 🚀", 
+                    "N/A", 
+                    "N/A",
+                    0
+                );
+            } catch(e) {
+                console.error("Link open EmailJS send failed:", e);
+            }
+            nextStep(2);
+        }
 
         // Render the checklist dynamically with semantic IDs
         function renderChecklist() {
